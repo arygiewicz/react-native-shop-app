@@ -15,7 +15,7 @@ class ProductsList extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Products:</Text>
-        {products.map((item, index) => {
+        {products.map((item: Product, index: number) => {
           return (
             <SingleProduct key={index} product={products[index]} id={index} />
           );
