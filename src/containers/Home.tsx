@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { ScaledSheet } from "react-native-size-matters";
 import { colors } from "../shared/styles";
+import ProductsList from "../components/ProductsList";
 
 interface Props {}
 
 class Home extends Component<Props> {
   render() {
+    const { products } = this.props;
     return (
       <View style={styles.container}>
-        <Text>Products</Text>
+        <ProductsList products={products} />
       </View>
     );
   }
