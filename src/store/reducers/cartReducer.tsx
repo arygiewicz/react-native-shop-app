@@ -3,10 +3,14 @@ import { Product } from "../../shared/interfaces";
 
 interface State {
   products: Product[];
+  totalPrice: number;
+  totalItems: number;
 }
 
 const initialState: State = {
-  products: []
+  products: [],
+  totalPrice: 0,
+  totalItems: 0
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -14,7 +18,9 @@ const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART:
       return {
         ...state,
-        products: action.payload.products
+        products: action.payload.products,
+        totalPrice: state.totalPrice + action.payload.priceToAdd,
+        totalItems: state.totalItems + 1
       };
     default:
       return state;

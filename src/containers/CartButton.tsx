@@ -3,20 +3,23 @@ import { View, TouchableOpacity, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { ScaledSheet, scale } from "react-native-size-matters";
 import { colors } from "../shared/styles";
+import { connect } from "react-redux";
 
 interface Props {
   navigation: any;
+  totalItems: number;
 }
 
 class CartButton extends Component<Props> {
   render() {
+    const { totalItems } = this.props;
     return (
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate("Cart")}
         >
           <View style={styles.cartProductNumberWrapper}>
-            <Text style={styles.cartProductNumber}>0</Text>
+            <Text style={styles.cartProductNumber}>{totalItems}</Text>
           </View>
           <Icon
             name="shopping-cart"
@@ -50,4 +53,8 @@ const styles = ScaledSheet.create({
   }
 });
 
-export default CartButton;
+const mapStateToProps = (state: any) => {
+  return { ...state.cart };
+};
+
+export default connect(mapStateToProps)(CartButton);

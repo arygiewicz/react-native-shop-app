@@ -8,11 +8,12 @@ import { Product } from "../shared/interfaces";
 
 interface Props {
   products: Product[];
+  totalPrice: number;
 }
 
 class Cart extends Component<Props> {
   render() {
-    const { products } = this.props;
+    const { products, totalPrice } = this.props;
     return (
       <View style={styles.container}>
         {products.length <= 0 ? (
@@ -20,7 +21,7 @@ class Cart extends Component<Props> {
         ) : (
           <>
             <ProductsList products={products} />
-            <Text style={styles.text}>TOTAL: 0 $</Text>
+            <Text style={styles.text}>TOTAL: {totalPrice.toFixed(2)} $</Text>
           </>
         )}
       </View>
