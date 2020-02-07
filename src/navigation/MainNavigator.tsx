@@ -3,6 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../containers/Home";
 import Cart from "../containers/Cart";
+import CartButton from "../containers/CartButton";
+import { colors } from "../shared/styles";
 
 const Stack = createStackNavigator();
 
@@ -13,15 +15,22 @@ const MainNavigator = () => {
         initialRouteName="Home"
         screenOptions={{
           headerStyle: {
-            backgroundColor: "#ea6852"
+            backgroundColor: colors.primaryColor
           },
-          headerTintColor: "#1f284d",
+          headerTintColor: colors.primaryFontColor,
           headerTitleStyle: {
             fontWeight: "bold"
           }
         }}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={nav => ({
+            title: "Store App",
+            headerRight: () => <CartButton navigation={nav.navigation} />
+          })}
+        />
         <Stack.Screen name="Cart" component={Cart} />
       </Stack.Navigator>
     </NavigationContainer>

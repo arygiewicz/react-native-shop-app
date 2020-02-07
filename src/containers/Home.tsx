@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 import { ScaledSheet } from "react-native-size-matters";
+import { colors } from "../shared/styles";
 
 interface Props {}
 
@@ -17,7 +18,7 @@ class Home extends Component<Props> {
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: colors.secondaryColor
   }
 });
 

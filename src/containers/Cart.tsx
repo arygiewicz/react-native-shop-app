@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 import { ScaledSheet } from "react-native-size-matters";
+import { colors } from "../shared/styles";
 
 interface Props {}
 
@@ -17,12 +18,12 @@ class Cart extends Component<Props> {
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: colors.secondaryColor
   },
   text: {
     flex: 1,
     padding: "15@s",
-    color: "#1f284d",
+    color: colors.primaryFontColor,
     fontSize: "16@s"
   }
 });
