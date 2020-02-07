@@ -3,12 +3,15 @@ import { View, Text } from "react-native";
 import { ScaledSheet } from "react-native-size-matters";
 import SingleProduct from "./SingleProduct";
 import { colors } from "../shared/styles";
-import { products } from "../constants/Data";
+import { Product } from "../shared/interfaces";
 
-interface Props {}
+interface Props {
+  products: Product[];
+}
 
 class ProductsList extends Component<Props> {
   render() {
+    const { products } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Products:</Text>

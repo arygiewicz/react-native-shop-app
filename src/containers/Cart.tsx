@@ -2,16 +2,20 @@ import React, { Component } from "react";
 import { View, Text } from "react-native";
 import { ScaledSheet } from "react-native-size-matters";
 import { colors } from "../shared/styles";
+import { connect } from "react-redux";
 import ProductsList from "../components/ProductsList";
+import { Product } from "../shared/interfaces";
 
-interface Props {}
+interface Props {
+  products: Product[];
+}
 
 class Cart extends Component<Props> {
   render() {
     const { products } = this.props;
     return (
       <View style={styles.container}>
-        {products.length === 0 ? (
+        {products.length <= 0 ? (
           <Text style={styles.text}>Your cart is empty.</Text>
         ) : (
           <>
@@ -37,4 +41,8 @@ const styles = ScaledSheet.create({
   }
 });
 
-export default Cart;
+const mapStateToProps = (state: any) => {
+  return { ...state.cart };
+};
+
+export default connect(mapStateToProps)(Cart);

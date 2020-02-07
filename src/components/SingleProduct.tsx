@@ -3,8 +3,12 @@ import { Text, TouchableOpacity } from "react-native";
 import { ScaledSheet, scale } from "react-native-size-matters";
 import { colors } from "../shared/styles";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { Product } from "../shared/interfaces";
 
-interface Props {}
+interface Props {
+  product: Product;
+  id: number;
+}
 
 class SingleProduct extends Component<Props> {
   render() {

@@ -4,7 +4,9 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { ScaledSheet, scale } from "react-native-size-matters";
 import { colors } from "../shared/styles";
 
-interface Props {}
+interface Props {
+  navigation: any;
+}
 
 class CartButton extends Component<Props> {
   render() {

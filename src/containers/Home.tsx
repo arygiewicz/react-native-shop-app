@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { View } from "react-native";
+import { connect } from "react-redux";
 import { ScaledSheet } from "react-native-size-matters";
-import { colors } from "../shared/styles";
 import ProductsList from "../components/ProductsList";
+import { colors } from "../shared/styles";
+import { Product } from "../shared/interfaces";
 
-interface Props {}
+interface Props {
+  products: Product[];
+}
 
 class Home extends Component<Props> {
   render() {
@@ -24,4 +28,8 @@ const styles = ScaledSheet.create({
   }
 });
 
-export default Home;
+const mapStateToProps = (state: any) => {
+  return { ...state };
+};
+
+export default connect(mapStateToProps)(Home);
