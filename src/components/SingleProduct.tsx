@@ -11,6 +11,8 @@ interface Props {
   product: Product;
   id: number;
   addProductToCart: ({ name: string, price: number }) => void;
+  removeProductFromCart: ({ name: string, price: number }) => void;
+  enableDelete?: boolean;
 }
 
 class SingleProduct extends Component<Props> {
@@ -19,17 +21,25 @@ class SingleProduct extends Component<Props> {
     if (!product.id) {
       product.id = this.props.id;
     }
+    const { enableDelete } = this.props;
     return (
       <TouchableOpacity
         style={styles.container}
-        onPress={() => this.props.addProductToCart(product)}
+        onPress={() =>
+          enableDelete
+            ? this.props.removeProductFromCart(product)
+            : this.props.addProductToCart(product)
+        }
       >
         <Text style={styles.product}>
           {product.count ? product.count : null} {product.name}{" "}
           {product.price.toFixed(2)} $
         </Text>
-
-        <Icon name="plus-circle" size={scale(24)} color={"green"} />
+        {enableDelete ? (
+          <Icon name="times-circle" size={scale(24)} color={"red"} />
+        ) : (
+          <Icon name="plus-circle" size={scale(24)} color={"green"} />
+        )}
       </TouchableOpacity>
     );
   }
@@ -52,6 +62,9 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     addProductToCart: product => {
       dispatch(addToCart(product));
+    },
+    removeProductFromCart: product => {
+      console.log("todo");
     }
   };
 };

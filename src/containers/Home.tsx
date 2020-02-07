@@ -12,10 +12,9 @@ interface Props {
 
 class Home extends Component<Props> {
   render() {
-    const { products } = this.props;
     return (
       <View style={styles.container}>
-        <ProductsList products={products} />
+        <ProductsList products={this.props.products} enableDelete={false} />
       </View>
     );
   }

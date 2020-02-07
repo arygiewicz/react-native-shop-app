@@ -7,17 +7,23 @@ import { Product } from "../shared/interfaces";
 
 interface Props {
   products: Product[];
+  enableDelete: boolean;
 }
 
 class ProductsList extends Component<Props> {
   render() {
-    const { products } = this.props;
+    const { products, enableDelete } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Products:</Text>
         {products.map((item: Product, index: number) => {
           return (
-            <SingleProduct key={index} product={products[index]} id={index} />
+            <SingleProduct
+              key={index}
+              product={products[index]}
+              id={index}
+              enableDelete={enableDelete}
+            />
           );
         })}
       </View>

@@ -20,7 +20,7 @@ class Cart extends Component<Props> {
           <Text style={styles.text}>Your cart is empty.</Text>
         ) : (
           <>
-            <ProductsList products={products} />
+            <ProductsList products={products} enableDelete={true} />
             <Text style={styles.text}>TOTAL: {totalPrice.toFixed(2)} $</Text>
           </>
         )}
