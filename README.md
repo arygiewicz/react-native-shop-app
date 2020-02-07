@@ -1,7 +1,8 @@
 # react-native-shop-app
 A simple shop app made in React Native and Redux
 
-##Requirements
+## Requirements
+
 Node.js
 Android emulator or Android phone plugged in by USB cable
 
