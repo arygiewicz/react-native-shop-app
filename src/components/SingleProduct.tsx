@@ -29,16 +29,15 @@ class SingleProduct extends Component<Props> {
           enableDelete
             ? this.props.removeProductFromCart(product)
             : this.props.addProductToCart(product)
-        }
-      >
+        }>
         <Text style={styles.product}>
           {product.count ? product.count : null} {product.name}{" "}
           {product.price.toFixed(2)} $
         </Text>
         {enableDelete ? (
-          <Icon name="times-circle" size={scale(24)} color={"red"} />
+          <Icon name='times-circle' size={scale(24)} color={"red"} />
         ) : (
-          <Icon name="plus-circle" size={scale(24)} color={"green"} />
+          <Icon name='plus-circle' size={scale(24)} color={"green"} />
         )}
       </TouchableOpacity>
     );

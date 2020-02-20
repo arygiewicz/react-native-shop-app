@@ -16,13 +16,12 @@ class CartButton extends Component<Props> {
     return (
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("Cart")}
-        >
+          onPress={() => this.props.navigation.navigate("Cart")}>
           <View style={styles.cartProductNumberWrapper}>
             <Text style={styles.cartProductNumber}>{totalItems}</Text>
           </View>
           <Icon
-            name="shopping-cart"
+            name='shopping-cart'
             size={scale(30)}
             color={colors.primaryFontColor}
           />
