@@ -4,7 +4,7 @@ import { ScaledSheet, scale } from "react-native-size-matters";
 import { colors } from "../shared/styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { connect } from "react-redux";
-import { addToCart } from "../store/actions/cartActions";
+import { addToCart, removeFromCart } from "../store/actions/cartActions";
 import { Product } from "../shared/interfaces";
 
 interface Props {
@@ -63,7 +63,7 @@ const mapDispatchToProps = (dispatch: any) => {
       dispatch(addToCart(product));
     },
     removeProductFromCart: product => {
-      console.log("todo");
+      dispatch(removeFromCart(product));
     }
   };
 };

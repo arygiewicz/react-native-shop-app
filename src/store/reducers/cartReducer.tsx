@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "../actions/types";
+import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/types";
 import { Product } from "../../shared/interfaces";
 
 interface State {
@@ -21,6 +21,15 @@ const cartReducer = (state = initialState, action) => {
         products: action.payload.products,
         totalPrice: state.totalPrice + action.payload.priceToAdd,
         totalItems: state.totalItems + 1
+      };
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        products: state.products.filter(
+          (item: Product) => item.id !== action.payload.product.id
+        ),
+        totalPrice: state.totalPrice - action.payload.priceToRemove,
+        totalItems: state.totalItems - action.payload.noOfItems
       };
     default:
       return state;
